@@ -1,0 +1,38 @@
+@import './breakpoints';
+
+// br
+
+.br-lg {
+  display: block;
+
+  @media (width < $md) {
+    display: none;
+  }
+}
+.br-md {
+  display: none;
+
+  @media (width < $md) {
+    display: block;
+  }
+}
+
+// redirect link
+
+// text align
+
+.align-center {
+  text-align: center;
+}
+
+// font weight
+
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
