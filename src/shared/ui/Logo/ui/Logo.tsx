@@ -7,16 +7,12 @@ type LogoProps = {
 	className?: string;
 };
 
-const Logo = memo((props: LogoProps) => {
-	const { className } = props;
-
-	return (
-		<strong className={classNames(styles.logo, {}, [className])}>
-			<a href={'/'} className={styles.logo__link}>
-				<LogoIcon />
-			</a>
-		</strong>
-	);
-});
+const Logo = memo(({ className }: LogoProps) => (
+	<strong className={classNames(styles.logo, {}, [className])}>
+		<a href={'/'} className={styles.logo__link}>
+			<LogoIcon/>
+		</a>
+	</strong>
+));
 
 export default Logo;

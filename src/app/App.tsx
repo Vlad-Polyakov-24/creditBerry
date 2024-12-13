@@ -2,9 +2,7 @@ import { AppLayout } from '@app/layouts/AppLayout';
 
 const App = () => {
 
-  return (
-    <AppLayout />
-  );
+  return <AppLayout />;
 };
 
 export default App;

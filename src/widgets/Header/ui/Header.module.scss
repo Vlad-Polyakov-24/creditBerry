@@ -1,0 +1,18 @@
+.header {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		padding: 10px 20px;
+		background-color: var(--color-white);
+		border-radius: 0 0 15px 15px;
+		box-shadow: var(--shadow-1);
+	}
+}

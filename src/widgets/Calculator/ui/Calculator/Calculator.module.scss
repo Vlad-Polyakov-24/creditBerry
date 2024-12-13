@@ -1,0 +1,22 @@
+.calculator {
+
+	&__inputs {
+		display: grid;
+		gap: 20px;
+
+		+ .calculator__info {
+			margin-top: 5px;
+		}
+	}
+
+	&__info {
+		display: grid;
+		gap: 4px;
+		font-weight: 600;
+		text-align: center;
+
+		span {
+			color: var(--color-tomato-400);
+		}
+	}
+}

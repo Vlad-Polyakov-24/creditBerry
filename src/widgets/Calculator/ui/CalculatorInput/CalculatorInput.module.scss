@@ -1,0 +1,36 @@
+.input {
+	display: grid;
+	gap: 10px;
+
+	&__control {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		padding: 10px;
+		border: 1px solid var(--color-gray-200);
+		border-radius: 10px;
+	}
+
+	&__total {
+		font: var(--font-xxxl);
+		font-weight: 700;
+		text-align: center;
+
+		span {
+			color: var(--color-tomato-400);
+		}
+	}
+
+	&__info {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+
+		p {
+			font: var(--font-s);
+		}
+	}
+}

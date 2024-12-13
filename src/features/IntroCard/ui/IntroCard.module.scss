@@ -1,0 +1,42 @@
+.card {
+	background-image: url('@shared/assets/images/intro.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: var(--color-white);
+
+	&__inner {
+		width: 100%;
+		max-width: 290px;
+	}
+
+	&__title {
+		width: 100%;
+		max-width: 260px;
+		color: inherit;
+
+		svg, path {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		+ .card__subtitle {
+			margin-top: 30px;
+		}
+	}
+
+	&__subtitle {
+		font: var(--font-xl);
+		font-weight: 700;
+		color: inherit;
+
+		+ .card__text {
+			margin-top: 10px;
+		}
+	}
+
+	&__text {
+		color: inherit;
+	}
+}

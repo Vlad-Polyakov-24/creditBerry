@@ -1,3 +1,25 @@
-.nav {
+@import '@app/styles/breakpoints';
 
+.nav {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+
+	@media (width < $lg) {
+		gap: 30px;
+	}
+
+	&__link {
+		padding-top: 5px;
+		padding-bottom: 5px;
+		font: var(--font-s);
+		font-weight: 600;
+		color: var(--color-gray-400);
+
+		@media (hover: hover) {
+			&:hover {
+				color: var(--color-gray-800);
+			}
+		}
+	}
 }

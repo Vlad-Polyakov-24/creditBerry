@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
 import { Marquee } from '@features/Marquee';
 import MainIntro from '../MainIntro/MainIntro';
@@ -12,19 +11,21 @@ type MainProps = {
 	className?: string;
 };
 
-const Main = memo((props: MainProps) => {
+const Main = (props: MainProps) => {
 	const { className } = props;
 
 	return (
 		<article className={classNames(styles.main, {}, [className])}>
 			<Marquee />
-			<MainIntro />
-			<MainAdvantages />
-			<MainConditions />
-			<MainReviews />
-			<MainGeneralConditions />
+			<div className={styles.main__inner}>
+				<MainIntro />
+				<MainAdvantages />
+				<MainConditions />
+				<MainReviews />
+				<MainGeneralConditions />
+			</div>
 		</article>
 	);
-});
+};
 
 export default Main;

@@ -1,3 +1,20 @@
-.marquee {
+@import '@app/styles/breakpoints';
 
+.marquee {
+	height: 40px;
+	background-color: var(--color-tomato-400);
+
+	@media (width < $md) {
+		height: 30px;
+	}
+
+	&__item {
+		padding-right: 140px;
+		font: var(--font-s);
+		color: var(--color-white);
+
+		@media (width < $md) {
+			padding-right: 80px;
+		}
+	}
 }

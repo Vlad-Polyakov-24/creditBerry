@@ -1,5 +1,8 @@
 import { memo } from 'react';
 import { classNames } from '@shared/lib/classNames';
+import { Container } from '@shared/ui/Container';
+import { IntroCard } from '@features/IntroCard';
+import { Calculator } from '@widgets/Calculator';
 import styles from './MainIntro.module.scss';
 
 type MainIntroProps = {
@@ -11,7 +14,10 @@ const MainIntro = memo((props: MainIntroProps) => {
 
 	return (
 		<section className={classNames(styles.intro, {}, [className])}>
-			<p>intro</p>
+			<Container className={styles.intro__inner}>
+				<IntroCard />
+				<Calculator />
+			</Container>
 		</section>
 	);
 });

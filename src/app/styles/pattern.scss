@@ -36,3 +36,17 @@
 .fw-700 {
   font-weight: 700;
 }
+
+// slider
+
+.rc-slider {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  bottom: -8px;
+  max-width: calc(100% - 10px);
+}
+
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  box-shadow: 0 0 0 5px var(--color-tomato-opacity);
+}

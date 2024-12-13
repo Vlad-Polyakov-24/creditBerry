@@ -1,1 +1,1 @@
-export { default as Calculator } from './ui/Calculator';
+export { default as Calculator } from './ui/Calculator/Calculator.tsx';

@@ -1,5 +1,6 @@
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { classNames } from '@shared/lib/classNames';
+import { navLinks } from '../model/data/nav.data';
 import styles from './Nav.module.scss';
 
 type NavProps = {
@@ -11,7 +12,11 @@ const Nav = memo((props: NavProps) => {
 
 	return (
 		<nav className={classNames(styles.nav, {}, [className])}>
-			<p>nav</p>
+			{
+				useMemo(() => navLinks.map(link => (
+					<a key={link} href={`#${link}`} className={styles.nav__link}>{link}</a>
+				)), [])
+			}
 		</nav>
 	);
 });

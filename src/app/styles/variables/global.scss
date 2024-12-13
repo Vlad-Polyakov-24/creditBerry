@@ -1,21 +1,49 @@
 @import '../breakpoints';
 
 :root {
+
   // colors
 
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray-100: #EEEEEE;
+  --color-gray-200: #E3E3E4FF;
   --color-gray-400: #787878;
   --color-gray-800: #3A3A3A;
-  --color-tomato: #D41A10;
+  --color-tomato-100: #F2382E;
+  --color-tomato-400: #D41A10;
+  --color-tomato-600: #B60000;
+  --color-tomato-opacity: rgba(212, 26, 16, .2);
+
+  // shadows
+
+  --shadow-1: 0 8px 16px 0 rgba(0, 0, 70, .2);
+
+  // breakpoints
+
+  --xs: 0px;
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+
+  // borders
+
+  --border-radius: 4px;
+  --border-width: 1px;
+
+  // transitions
+
+  --transition-duration: 0.3s;
+
+  // animation
 
   // fonts
 
   --font-family-main: 'Open Sans', -apple-system, 'Ubuntu', 'Roboto', 'Fira Sans', sans-serif;
 
-  --font-size-xs: 10px;
-  --font-line-xs: 14px;
+  --font-size-xs: 12px;
+  --font-line-xs: 16px;
   --font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
 
   --font-size-s: 14px;
@@ -30,23 +58,22 @@
   --font-line-l: 24px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
-  --font-size-xl: 22px;
-  --font-line-xl: 28px;
+  --font-size-xl: 20px;
+  --font-line-xl: 26px;
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+  --font-size-xxl: 24px;
+  --font-line-xxl: 30px;
+  --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-main);
+
+  --font-size-xxxl: 28px;
+  --font-line-xxxl: 34px;
+  --font-xxxl: var(--font-size-xxxl) / var(--font-line-xxxl) var(--font-family-main);
 
   // container
 
-  --container-width: 1180px;
-  --container-gap: 50px;
-
-  // tablet
-
-  @media (width < $lg) {
-
-    // container
-
-    --container-gap: 35px;
-  }
+  --container-width: 1140px;
+  --container-gap: 20px;
 
   // mobile
 
@@ -54,6 +81,6 @@
 
     // container
 
-    --container-gap: 20px;
+    --container-gap: 10px;
   }
 }
