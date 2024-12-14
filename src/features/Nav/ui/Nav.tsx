@@ -7,18 +7,14 @@ type NavProps = {
 	className?: string;
 };
 
-const Nav = memo((props: NavProps) => {
-	const { className } = props;
-
-	return (
-		<nav className={classNames(styles.nav, {}, [className])}>
-			{
-				useMemo(() => navLinks.map(link => (
-					<a key={link} href={`#${link}`} className={styles.nav__link}>{link}</a>
-				)), [])
-			}
-		</nav>
-	);
-});
+const Nav = memo(({ className }: NavProps) => (
+	<nav className={classNames(styles.nav, {}, [className])}>
+		{
+			useMemo(() => navLinks.map(({ link, label }) => (
+				<a key={link} href={`#${link}`} className={styles.nav__link}>{label}</a>
+			)), [])
+		}
+	</nav>
+));
 
 export default Nav;

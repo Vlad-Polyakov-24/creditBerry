@@ -1,9 +1,11 @@
-.intro {
+@import '@app/styles/breakpoints';
 
-	&__inner {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		align-items: flex-start;
-		gap: 20px;
+.intro {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+
+	@media (width < $lg) {
+		grid-template-columns: 1fr;
 	}
 }

@@ -15,6 +15,10 @@
 	font-weight: 600;
 	text-align: center;
 
+	@media (width < $md) {
+		gap: 5px;
+	}
+
 	// color
 
 	&--white {
@@ -22,6 +26,9 @@
 	}
 	&--black {
 		color: var(--color-black);
+	}
+	&--dark-gray {
+		color: var(--color-gray-800);
 	}
 
 	// theme
@@ -32,6 +39,23 @@
 		@media (hover: hover) {
 			&:hover {
 				background-color: var(--color-tomato-100);
+			}
+		}
+	}
+	&--login {
+		padding: 4px 20px;
+		background-color: var(--color-gray-800);
+
+		@media (width < $md) {
+			padding-left: 10px;
+			padding-right: 10px;
+			font: var(--font-xs);
+			font-weight: 600;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background-color: var(--color-tomato-400);
 			}
 		}
 	}

@@ -6,9 +6,8 @@ type ImageProps = {
 	className?: string;
 	src: string;
 	alt?: string;
-	width?: string | number;
-	maxWidth?: string | number;
-	borderRadius?: string | number;
+	shadow?: boolean;
+	maxWidth?: CSSProperties['maxWidth'];
 	customStyles?: CSSProperties;
 };
 
@@ -17,24 +16,21 @@ const Image = memo((props: ImageProps) => {
 		className,
 		src,
 		alt = 'image description',
-		width = '100%',
+		shadow,
 		maxWidth = 100,
-		borderRadius = 30,
 		customStyles,
 	} = props;
 
 	const customStyle: CSSProperties = useMemo(
 		() => ({
-			width,
 			maxWidth,
-			borderRadius,
 			...customStyles,
 		}),
-		[width, maxWidth, borderRadius, customStyles]
+		[maxWidth, customStyles]
 	);
 
 	return (
-		<div className={classNames(styles.image, {}, [className])} style={customStyle}>
+		<div className={classNames(styles.image, {[styles.shadow]: shadow}, [className])} style={customStyle}>
 			<picture>
 				<img src={src} alt={alt} />
 			</picture>

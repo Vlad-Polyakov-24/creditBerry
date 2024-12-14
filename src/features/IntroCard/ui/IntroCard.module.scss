@@ -1,9 +1,19 @@
+@import '@app/styles/breakpoints';
+
 .card {
 	background-image: url('@shared/assets/images/intro.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	color: var(--color-white);
+
+	@media (width < $lg) {
+		min-height: 400px;
+	}
+	@media (width < $md) {
+		min-height: unset;
+		padding: 30px;
+  }
 
 	&__inner {
 		width: 100%;

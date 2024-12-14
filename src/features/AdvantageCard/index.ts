@@ -1,0 +1,1 @@
+export { default as AdvantageCard } from './ui/AdvantageCard';

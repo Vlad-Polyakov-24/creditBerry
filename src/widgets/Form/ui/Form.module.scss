@@ -1,0 +1,25 @@
+@import '@app/styles/breakpoints';
+
+.form {
+	padding-top: 32px;
+
+	@media (width < $md) {
+		padding-top: 20px;
+	}
+}
+
+.card {
+	display: grid;
+	gap: 24px;
+
+	&__title {
+		font: var(--font-l);
+		font-weight: 700;
+		text-align: center;
+	}
+
+	&__text {
+		font: var(--font-s);
+    color: var(--color-gray-400);
+	}
+}

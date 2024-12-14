@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes } from 'react';
 import { classNames, type Additional, type Mods } from '@shared/lib/classNames';
 import { ButtonTheme, ButtonColor } from '../model/types/Button.types';
 import styles from './Button.module.scss';

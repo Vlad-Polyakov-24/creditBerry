@@ -1,0 +1,51 @@
+@import '@app/styles/breakpoints';
+
+.card {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	min-height: 150px;
+	padding-bottom: 30px;
+	overflow: visible;
+
+	@media (width < $lg) {
+		min-height: 130px;
+		padding: 30px 30px 20px;
+	}
+	@media (width < $md) {
+		justify-content: flex-start;
+		gap: 12px;
+		min-height: unset;
+		padding: 20px;
+	}
+
+	&__icon {
+		display: block;
+		position: absolute;
+		top: -30px;
+		left: 50%;
+		translate: -50% 0;
+
+		@media (width < $md) {
+			position: relative;
+			top: unset;
+			left: unset;
+			translate: 0 0;
+		}
+	}
+
+	&__text {
+		font-weight: 700;
+		text-align: center;
+
+		@media (width < $md) {
+      font: var(--font-s);
+			font-weight: 700;
+    }
+		@media (width < $sm) {
+			text-align: left;
+		}
+	}
+}

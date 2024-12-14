@@ -1,3 +1,5 @@
+@import '@app/styles/breakpoints';
+
 .input {
 	display: grid;
 	gap: 10px;
@@ -11,12 +13,36 @@
 		padding: 10px;
 		border: 1px solid var(--color-gray-200);
 		border-radius: 10px;
+		transition: 0.1s ease;
+
+		@media (hover: hover) {
+			&:hover {
+				border-color: var(--color-tomato-400);
+			}
+		}
+	}
+
+	&__button {
+		@media (hover: hover) {
+			&:hover {
+				background-color: var(--color-tomato-opacity);
+			}
+		}
 	}
 
 	&__total {
-		font: var(--font-xxxl);
+		font: var(--font-xxl);
 		font-weight: 700;
 		text-align: center;
+
+		@media (width < $md) {
+			font: var(--font-xl);
+			font-weight: 700;
+		}
+		@media (width < $xs) {
+			font: var(--font-l);
+			font-weight: 700;
+		}
 
 		span {
 			color: var(--color-tomato-400);

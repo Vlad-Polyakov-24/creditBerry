@@ -1,0 +1,25 @@
+.tooltip {
+	position: absolute;
+	left: 50%;
+	top: calc(100% + 10px);
+	translate: -50% 0;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: var(--color-tomato-400);
+	font: var(--font-s);
+	color: var(--color-white);
+	white-space: nowrap;
+
+	&:before {
+		content: '';
+		position: absolute;
+		bottom: calc(100% - 1px);
+		left: 50%;
+		display: block;
+		width: 15px;
+		height: 5px;
+		translate: -50% 0;
+		background-color: inherit;
+		clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	}
+}

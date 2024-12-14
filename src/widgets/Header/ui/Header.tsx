@@ -4,7 +4,8 @@ import { useMedia } from '@shared/hooks/useMedia';
 import { Container } from '@shared/ui/Container';
 import { Logo } from '@shared/ui/Logo';
 import { Nav } from '@features/Nav';
-import { appState } from '@entities/App';
+import { LoginButton } from '@features/LoginButton';
+import { appState, AppStatus } from '@entities/App';
 import styles from './Header.module.scss';
 
 type HeaderProps = {
@@ -14,7 +15,7 @@ type HeaderProps = {
 const Header = memo(({ className }: HeaderProps) => {
 	const headerRef = useRef<HTMLHeadElement>(null);
 	const { isMobile } = useMedia();
-	const { set } = appState();
+	const { status, set } = appState();
 
 	useEffect(() => {
 		if (headerRef.current) {
@@ -32,14 +33,19 @@ const Header = memo(({ className }: HeaderProps) => {
 				resizeObserver.disconnect();
 			};
 		}
-	}, [headerRef]);
+	}, [headerRef, set]);
 
 	return (
 		<header ref={headerRef} className={classNames(styles.header, {}, [className])}>
-			<Container>
+			<Container style={{ height: '100%' }}>
 				<div className={styles.header__inner}>
-					<Logo className={isMobile ? 'm-centred' : ''} />
-					{!isMobile && <Nav />}
+					<Logo className={status === AppStatus.FORM ? 'm-centred' : ''} />
+					{status === AppStatus.DEFAULT && (
+						<div className={styles.header__nav}>
+							{!isMobile && <Nav />}
+							<LoginButton />
+						</div>
+					)}
 				</div>
 			</Container>
 		</header>

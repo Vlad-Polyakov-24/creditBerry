@@ -19,24 +19,17 @@
 
   --shadow-1: 0 8px 16px 0 rgba(0, 0, 70, .2);
 
-  // breakpoints
+  // border radius
 
-  --xs: 0px;
-  --sm: 576px;
-  --md: 768px;
-  --lg: 992px;
-  --xl: 1200px;
-
-  // borders
-
-  --border-radius: 4px;
-  --border-width: 1px;
+  --primary-border-radius: 28px;
 
   // transitions
 
-  --transition-duration: 0.3s;
+  --transition-duration: .1s;
 
-  // animation
+  // paddings
+
+  --card-padding: 40px;
 
   // fonts
 
@@ -58,16 +51,16 @@
   --font-line-l: 24px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
-  --font-size-xl: 20px;
-  --font-line-xl: 26px;
+  --font-size-xl: 24px;
+  --font-line-xl: 30px;
   --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
-  --font-size-xxl: 24px;
-  --font-line-xxl: 30px;
+  --font-size-xxl: 28px;
+  --font-line-xxl: 34px;
   --font-xxl: var(--font-size-xxl) / var(--font-line-xxl) var(--font-family-main);
 
-  --font-size-xxxl: 28px;
-  --font-line-xxxl: 34px;
+  --font-size-xxxl: 32px;
+  --font-line-xxxl: 38px;
   --font-xxxl: var(--font-size-xxxl) / var(--font-line-xxxl) var(--font-family-main);
 
   // container
@@ -75,12 +68,28 @@
   --container-width: 1140px;
   --container-gap: 20px;
 
+  // header
+
+  --header-height: 60px;
+
   // mobile
 
   @media (width < $md) {
 
+    // border radius
+
+    --primary-border-radius: 12px;
+
+    // paddings
+
+    --card-padding: 20px;
+
     // container
 
     --container-gap: 10px;
+
+    // header
+
+    --header-height: 50px;
   }
 }

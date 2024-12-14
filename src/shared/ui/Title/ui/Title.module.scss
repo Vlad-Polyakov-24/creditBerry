@@ -1,3 +1,12 @@
-.title {
+@import '@app/styles/breakpoints';
 
+.title {
+	font: var(--font-xxxl);
+	font-weight: 700;
+	color: var(--color-gray-800);
+
+	@media (width < $md) {
+    font: var(--font-xl);
+		font-weight: 700;
+  }
 }

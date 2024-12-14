@@ -1,18 +1,24 @@
-import { MainPage } from '@pages/Main';
+import { useMedia } from '@shared/hooks/useMedia';
 import { Header } from '@widgets/Header';
+import { Marquee } from '@features/Marquee';
+import { MainPage } from '@pages/Main';
+import { Form } from '@widgets/Form';
 import { Footer } from '@widgets/Footer';
-import { appState } from '@entities/App';
+import { appState, AppStatus } from '@entities/App';
 
 const AppLayout = () => {
-	const { headerHeight } = appState();
+	const { isMobile } = useMedia();
+	const { headerHeight, status } = appState();
 
 	return (
 		<main className={'main'}>
-			<Header/>
+			<Header />
 			<div className={'page'} style={{ paddingTop: headerHeight }}>
-				<MainPage/>
+				<Marquee className={`mt-${isMobile ? '20' : '32'}`} />
+				{status === AppStatus.DEFAULT && <MainPage />}
+				{status === AppStatus.FORM && <Form />}
 			</div>
-			<Footer/>
+			<Footer />
 		</main>
 	);
 };

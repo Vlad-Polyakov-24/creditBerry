@@ -1,0 +1,71 @@
+@import '@app/styles/breakpoints';
+
+.conditions {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+
+		@media (width < $md) {
+			gap: 12px;
+		}
+	}
+
+	&__btn {
+		padding-top: 20px;
+		padding-bottom: 20px;
+
+		@media (width < $lg) {
+			max-width: 350px;
+			margin-left: auto;
+		}
+		@media (width < $md) {
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		@media (width < $sm) {
+			max-width: 100%;
+		}
+	}
+}
+
+.info {
+	--gap: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex-grow: 1;
+	gap: var(--gap);
+
+	@media (width < $md) {
+		--gap: 24px;
+	}
+
+	&__list {
+		display: grid;
+		gap: var(--gap);
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+
+		@media (width < $md) {
+			gap: 12px;
+		}
+
+		&-content {
+			display: grid;
+			gap: 12px;
+
+			@media (width < $md) {
+				gap: 4px;
+			}
+		}
+	}
+}

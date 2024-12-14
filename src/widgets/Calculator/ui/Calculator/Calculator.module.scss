@@ -1,4 +1,7 @@
+@import '@app/styles/breakpoints';
+
 .calculator {
+	position: relative;
 
 	&__inputs {
 		display: grid;
@@ -15,8 +18,25 @@
 		font-weight: 600;
 		text-align: center;
 
+		@media (width < $xs) {
+			font: var(--font-s);
+			font-weight: 700;
+		}
+
 		span {
 			color: var(--color-tomato-400);
 		}
+	}
+
+	&__warning {
+		position: absolute;
+		width: 100%;
+		max-width: 100%;
+		top: calc(100% + 20px);
+		left: 50%;
+		translate: -50% 0;
+		font: var(--font-s);
+		text-align: center;
+		color: var(--color-gray-400);
 	}
 }

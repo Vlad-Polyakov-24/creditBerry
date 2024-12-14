@@ -1,5 +1,4 @@
 import { classNames } from '@shared/lib/classNames';
-import { Marquee } from '@features/Marquee';
 import MainIntro from '../MainIntro/MainIntro';
 import MainAdvantages from '../MainAdvantages/MainAdvantages';
 import MainConditions from '../MainConditions/MainConditions';
@@ -16,14 +15,11 @@ const Main = (props: MainProps) => {
 
 	return (
 		<article className={classNames(styles.main, {}, [className])}>
-			<Marquee />
-			<div className={styles.main__inner}>
-				<MainIntro />
-				<MainAdvantages />
-				<MainConditions />
-				<MainReviews />
-				<MainGeneralConditions />
-			</div>
+			<MainIntro />
+			<MainAdvantages />
+			<MainConditions />
+			<MainReviews />
+			<MainGeneralConditions />
 		</article>
 	);
 };
