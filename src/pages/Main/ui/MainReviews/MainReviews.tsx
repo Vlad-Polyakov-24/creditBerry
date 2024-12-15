@@ -1,25 +1,21 @@
 import { memo } from 'react';
-import { classNames } from '@shared/lib/classNames';
 import { Container } from '@shared/ui/Container';
 import { Title } from '@shared/ui/Title';
 import { Gallery } from '@widgets/Gallery';
 import { sectionsId } from '@shared/const/sectionsId';
-import styles from './MainReviews.module.scss';
+import { reviews } from '../../model/data/MainReview.data';
 
 type MainReviewsProps = {
 	className?: string;
 };
 
-const MainReviews = memo(({ className }: MainReviewsProps) => {
-
-	return (
-		<section id={sectionsId.REVIEWS} className={classNames(styles.reviews, {}, [className])}>
-			<Container>
-				<Title title={'Відгуки'} as={'h2'} />
-				<Gallery />
-			</Container>
-		</section>
-	);
-});
+const MainReviews = memo(({ className }: MainReviewsProps) => (
+	<section id={sectionsId.REVIEWS} className={className} style={{ overflow: 'hidden' }}>
+		<Container>
+			<Title title={'Відгуки'} as={'h2'}/>
+			<Gallery reviews={reviews}/>
+		</Container>
+	</section>
+));
 
 export default MainReviews;

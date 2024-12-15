@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from 'react';
+import { useMedia } from '@shared/hooks/useMedia';
 import { classNames } from '@shared/lib/classNames';
 import { Card } from '@shared/ui/Card';
 import { Button } from '@shared/ui/Button';
@@ -27,6 +28,7 @@ const Calculator = memo(({ className }: CalculatorProps) => {
     max: 30,
 	};
 	const { change } = useChangeStatus();
+	const { isMobile } = useMedia();
 
 	useEffect(() => {
 		const amountFactor = amount / 500;
@@ -62,8 +64,9 @@ const Calculator = memo(({ className }: CalculatorProps) => {
 			</div>
 			<Button
 				className={'mt-24 m-centred'}
-				style={{ maxWidth: 280 }}
+				style={{ maxWidth: isMobile ? '100%' : 280 }}
 				onClick={() => change({ to: AppStatus.FORM })}
+				fluid={isMobile}
 			>
 				Взяти кредит
 			</Button>

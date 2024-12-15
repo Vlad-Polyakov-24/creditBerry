@@ -1,9 +1,10 @@
 @import '@app/styles/breakpoints';
 
 .main {
-	padding-top: 32px;
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	gap: 140px;
+	padding-top: 32px;
 
 	@media (width < $md) {
 		padding-top: 20px;

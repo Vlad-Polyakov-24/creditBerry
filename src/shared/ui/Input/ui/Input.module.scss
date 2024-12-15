@@ -1,0 +1,38 @@
+.input {
+	display: block;
+	width: 100%;
+	padding: 15px 20px;
+	border: 1px solid var(--color-gray-300);
+	border-radius: 10px;
+	font: var(--font-m);
+	font-weight: 600;
+	color: var(--color-gray-800);
+
+	&.error {
+		border-color: var(--color-tomato-400);
+		color: var(--color-tomato-400);
+	}
+
+	&::placeholder {
+		color: var(--color-gray-300);
+	}
+
+	&:focus {
+		outline: none;
+		border-color: var(--color-gray-800);
+		color: var(--color-gray-800);
+	}
+
+	&__label {
+		position: relative;
+		display: block;
+	}
+
+	&__error {
+		position: absolute;
+		top: 100%;
+		left: 5px;
+		font: var(--font-s);
+		color: var(--color-tomato-400);
+	}
+}

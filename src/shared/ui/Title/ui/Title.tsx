@@ -7,16 +7,15 @@ interface TitleProps extends HTMLAttributes<HTMLHeadingElement> {
 	title: string;
 	as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 	align?: CSSProperties['textAlign'];
-	style?: CSSProperties;
 }
 
 const Title = memo((props: TitleProps) => {
-	const { as: Tag = 'h1', className, title, align = 'center', ...rest } = props;
+	const { as: Tag = 'h1', className, title, align = 'center', style, ...rest } = props;
 
 	return (
 		<Tag
 			className={classNames(styles.title, {}, [className])}
-			style={{ textAlign: align }}
+			style={{ textAlign: align, ...style }}
 			{...rest}
 		>
 			{title}

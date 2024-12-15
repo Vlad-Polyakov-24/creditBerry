@@ -1,0 +1,51 @@
+@import '@app/styles/breakpoints';
+
+.conditions {
+	padding-top: 80px;
+	padding-bottom: 80px;
+	background-color: var(--color-gray-900);
+
+	@media (width < $lg) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	@media (width < $md) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		margin-top: 60px;
+
+		@media (width < $md) {
+			margin-top: 40px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+	}
+
+	&__item {
+		color: var(--color-white);
+
+		.title {
+			font: var(--font-xl);
+			font-weight: 700;
+
+			@media (width < $md) {
+				font: var(--font-l);
+				font-weight: 700;
+			}
+
+			+ .text {
+				margin-top: 24px;
+			}
+		}
+		.text {
+			font: var(--font-s);
+			color: var(--color-gray-100);
+		}
+	}
+}
