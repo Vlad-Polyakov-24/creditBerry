@@ -13,52 +13,6 @@ interface UseModalProps {
   animationDelay: number;
 }
 
-// const useModal = ({ isOpen, onClose, animationDelay }: UseModalProps) => {
-//   const [isClosing, setIsClosing] = useState(false);
-//   const [isMounted, setIsMounted] = useState(false);
-//   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-//   const modalRef = useRef<HTMLDivElement>(null);
-//
-//   const close = useCallback(() => {
-//     if (onClose && modalRef.current) {
-//       enableBodyScroll(modalRef.current);
-//       setIsClosing(true);
-//       timerRef.current = setTimeout(() => {
-//         setIsMounted(false);
-//         setIsClosing(false);
-//         onClose();
-//       }, animationDelay);
-//     }
-//   }, [animationDelay, onClose]);
-//
-//   const onKeyDown = useCallback((e: KeyboardEvent) => {
-//     if (e.key === 'Escape') close();
-//   }, [close]);
-//
-//   useEffect(() => {
-//     if (isOpen) {
-//       setIsMounted(true);
-//     } else {
-//       close();
-//     }
-//   }, [isOpen, close]);
-//
-//   useEffect(() => {
-//     if (isMounted && modalRef.current) {
-//       window.addEventListener('keydown', onKeyDown);
-//       disableBodyScroll(modalRef.current);
-//     }
-//
-//     return () => {
-//       clearTimeout(timerRef.current);
-//       window.removeEventListener('keydown', onKeyDown);
-//       clearAllBodyScrollLocks();
-//     };
-//   }, [isMounted, onKeyDown]);
-//
-//   return { isMounted, close, isClosing, modalRef };
-// }
-
 const useModal = ({ isOpen, onClose, animationDelay }: UseModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
