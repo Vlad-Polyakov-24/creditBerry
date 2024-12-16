@@ -16,6 +16,7 @@
   --color-tomato-400: #D41A10;
   --color-tomato-600: #B60000;
   --color-tomato-opacity: rgba(212, 26, 16, .2);
+  --color-overlay: rgba(0, 0, 0, .6);
 
   // shadows
 
@@ -27,7 +28,7 @@
 
   // transitions
 
-  --transition-duration: .1s;
+  --transition-primary: .1s ease;
 
   // paddings
 

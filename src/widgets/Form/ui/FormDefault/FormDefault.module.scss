@@ -1,21 +1,6 @@
 @import '@app/styles/breakpoints';
 
-.form {
-	padding-top: 32px;
-
-	@media (width < $md) {
-		padding-top: 20px;
-	}
-}
-
 .card {
-	display: grid;
-	gap: 24px;
-	width: 100%;
-	max-width: 580px;
-	margin-left: auto;
-	margin-right: auto;
-
 	&__btn {
 		@media (hover: hover) {
 			&:hover {

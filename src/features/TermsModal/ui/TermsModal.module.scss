@@ -1,0 +1,36 @@
+.terms {
+	width: 600px;
+	max-width: 100%;
+	max-height: 600px;
+	overflow-y: auto;
+
+	h3 {
+		font: var(--font-xl);
+		font-weight: 700;
+		text-align: center;
+
+		+ p {
+			margin-top: 15px;
+		}
+	}
+	p {
+		+ p, + ul {
+			margin-top: 10px;
+		}
+	}
+	ul {
+		padding-left: 25px;
+
+		+ p {
+			margin-top: 10px;
+		}
+
+		li {
+			list-style: disc;
+
+			+ li {
+				margin-top: 5px;
+			}
+		}
+	}
+}

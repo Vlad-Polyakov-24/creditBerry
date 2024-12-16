@@ -1,0 +1,47 @@
+.success {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__title {
+		margin-top: 24px;
+		font: var(--font-xl);
+		font-weight: 700;
+		text-align: center;
+
+		+ .success__number {
+			margin-top: 8px;
+		}
+	}
+
+	&__number {
+		font: var(--font-s);
+    font-weight: 600;
+    text-align: center;
+		color: var(--color-gray-400);
+
+    +.success__text {
+      margin-top: 40px;
+    }
+	}
+
+	&__text {
+		font: var(--font-xs);
+		font-weight: 600;
+		text-align: center;
+
+		+ .success__counter {
+			margin-top: 8px;
+		}
+	}
+
+	&__counter {
+		display: flex;
+		gap: 3px;
+		font: var(--font-xs);
+		font-weight: 600;
+		text-align: center;
+		color: var(--color-tomato-400);
+	}
+}
