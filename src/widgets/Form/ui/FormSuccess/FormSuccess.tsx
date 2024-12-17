@@ -21,6 +21,7 @@ const FormSuccess = memo((props: FormSuccessProps) => {
 
 		if (counter === 0) {
 			clearInterval(timer);
+			window.history.pushState(null, '', '/');
 			window.location.href = 'https://1zaim.com/BRC/1/';
 		}
 

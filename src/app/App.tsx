@@ -7,7 +7,9 @@ const App = () => {
 
   useEffect(() => {
     const handlePopState = () => {
-      change({ to: AppStatus.DEFAULT });
+      if (window.location.pathname === '/') {
+        change({ to: AppStatus.DEFAULT });
+      }
     };
 
     window.addEventListener('popstate', handlePopState);
