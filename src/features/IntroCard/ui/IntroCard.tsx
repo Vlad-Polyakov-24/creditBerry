@@ -12,10 +12,10 @@ const IntroCard = memo(({ className }: IntroCardProps) => (
 	<Card className={classNames(styles.card, {}, [className])}>
 		<div className={styles.card__inner}>
 			<h1 className={styles.card__title} aria-label={'title'} title={'CreditBerry'}>
-				<LogoTitle/>
+				<LogoTitle />
 			</h1>
 			<h2 className={styles.card__subtitle}>
-				—твій надійний партнeр<br/>
+				твій надійний партнeр<br />
 				у фінансових питаннях!
 			</h2>
 			<p className={styles.card__text}>
