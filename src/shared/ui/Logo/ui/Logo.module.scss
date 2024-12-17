@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .logo {
 	display: block;
@@ -6,7 +6,7 @@
 	max-width: 175px;
 	cursor: pointer;
 
-	@media (width < $md) {
+	@media (width < breakpoints.$md) {
 		max-width: 130px;
 	}
 

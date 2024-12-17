@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .main {
 	display: flex;
@@ -6,7 +6,7 @@
 	gap: 140px;
 	padding-top: 32px;
 
-	@media (width < $md) {
+	@media (width < breakpoints.$md) {
 		padding-top: 20px;
 		gap: 80px;
 	}

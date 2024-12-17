@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .modal {
   position: fixed;
@@ -33,7 +33,7 @@
     padding: 20px;
     background-color: var(--color-overlay);
 
-    @media (width < $md) {
+    @media (width < breakpoints.$md) {
       padding: 10px;
     }
   }
@@ -47,7 +47,7 @@
     border-radius: 10px;
     background-color: var(--color-white);
 
-    @media (width < $xs) {
+    @media (width < breakpoints.$xs) {
       padding: 10px;
     }
 

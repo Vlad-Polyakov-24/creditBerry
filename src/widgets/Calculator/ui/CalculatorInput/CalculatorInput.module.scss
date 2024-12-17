@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .input {
 	display: grid;
@@ -20,6 +20,11 @@
 				border-color: var(--color-tomato-400);
 			}
 		}
+
+		@media (width < breakpoints.$md) {
+			padding-top: 7px;
+			padding-bottom: 7px;
+		}
 	}
 
 	&__button {
@@ -35,11 +40,11 @@
 		font-weight: 700;
 		text-align: center;
 
-		@media (width < $md) {
+		@media (width < breakpoints.$md) {
 			font: var(--font-xl);
 			font-weight: 700;
 		}
-		@media (width < $xs) {
+		@media (width < breakpoints.$xs) {
 			font: var(--font-l);
 			font-weight: 700;
 		}

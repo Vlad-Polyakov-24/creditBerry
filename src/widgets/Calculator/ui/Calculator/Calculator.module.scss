@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .calculator {
 	position: relative;
@@ -6,6 +6,10 @@
 	&__inputs {
 		display: grid;
 		gap: 20px;
+
+		@media (width < breakpoints.$md) {
+			gap: 10px;
+		}
 
 		+ .calculator__info {
 			margin-top: 5px;
@@ -18,7 +22,7 @@
 		font-weight: 600;
 		text-align: center;
 
-		@media (width < $xs) {
+		@media (width < breakpoints.$xs) {
 			font: var(--font-s);
 			font-weight: 700;
 		}

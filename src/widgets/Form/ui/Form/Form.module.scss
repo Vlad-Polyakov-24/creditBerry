@@ -1,9 +1,9 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .section {
 	padding-top: 32px;
 
-	@media (width < $md) {
+	@media (width < breakpoints.$md) {
 		padding-top: 20px;
 	}
 }

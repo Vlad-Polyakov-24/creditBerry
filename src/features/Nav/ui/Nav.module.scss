@@ -1,11 +1,11 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .nav {
 	display: flex;
 	align-items: center;
 	gap: 60px;
 
-	@media (width < $lg) {
+	@media (width < breakpoints.$lg) {
 		gap: 30px;
 	}
 

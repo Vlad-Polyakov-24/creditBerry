@@ -1,4 +1,4 @@
-@import '../breakpoints';
+@use '../breakpoints';
 
 :root {
 
@@ -17,6 +17,7 @@
   --color-tomato-600: #B60000;
   --color-tomato-opacity: rgba(212, 26, 16, .2);
   --color-overlay: rgba(0, 0, 0, .6);
+  --color-overlay-second: rgba(0, 0, 0, .3);
 
   // shadows
 
@@ -85,7 +86,7 @@
 
   // mobile
 
-  @media (width < $md) {
+  @media (width < breakpoints.$md) {
 
     // border radius
 

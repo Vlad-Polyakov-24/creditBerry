@@ -1,19 +1,32 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .card {
+	position: relative;
+	z-index: 1;
 	background-image: url('@shared/assets/images/intro.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 	color: var(--color-white);
 
-	@media (width < $lg) {
+	@media (width < breakpoints.$lg) {
 		min-height: 400px;
 	}
-	@media (width < $md) {
+	@media (width < breakpoints.$md) {
 		min-height: unset;
-		padding: 30px;
+		padding: 20px 30px;
   }
+
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--color-overlay-second);
+	}
 
 	&__inner {
 		width: 100%;
@@ -33,6 +46,10 @@
 
 		+ .card__subtitle {
 			margin-top: 30px;
+
+			@media (width < breakpoints.$md) {
+				margin-top: 10px;
+			}
 		}
 	}
 
@@ -48,5 +65,9 @@
 
 	&__text {
 		color: inherit;
+
+		@media (width < breakpoints.$md) {
+			font: var(--font-s);
+		}
 	}
 }

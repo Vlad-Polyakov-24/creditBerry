@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .slide {
 	height: 100%;
@@ -6,7 +6,7 @@
 	flex-direction: column;
 	gap: 20px;
 
-	@media (width < $lg) {
+	@media (width < breakpoints.$lg) {
 		padding: 30px;
 	}
 

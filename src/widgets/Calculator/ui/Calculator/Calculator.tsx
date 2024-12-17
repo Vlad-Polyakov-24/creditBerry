@@ -63,7 +63,7 @@ const Calculator = memo(({ className }: CalculatorProps) => {
 				<p>Усього потрібно сплатити: <span>{total}</span> ₴</p>
 			</div>
 			<Button
-				className={'mt-24 m-centred'}
+				className={`${isMobile ? 'mt-12': 'mt-24' } m-centred`}
 				style={{ maxWidth: isMobile ? '100%' : 280 }}
 				onClick={() => change({ to: AppStatus.FORM })}
 				fluid={isMobile}

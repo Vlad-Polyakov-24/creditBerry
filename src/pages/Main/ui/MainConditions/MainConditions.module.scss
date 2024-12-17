@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .conditions {
 	display: grid;
@@ -10,7 +10,7 @@
 		flex-direction: column;
 		gap: 20px;
 
-		@media (width < $md) {
+		@media (width < breakpoints.$md) {
 			gap: 12px;
 		}
 	}
@@ -19,15 +19,15 @@
 		padding-top: 20px;
 		padding-bottom: 20px;
 
-		@media (width < $lg) {
+		@media (width < breakpoints.$lg) {
 			max-width: 350px;
 			margin-left: auto;
 		}
-		@media (width < $md) {
+		@media (width < breakpoints.$md) {
 			padding-top: 15px;
 			padding-bottom: 15px;
 		}
-		@media (width < $sm) {
+		@media (width < breakpoints.$sm) {
 			max-width: 100%;
 		}
 	}
@@ -41,7 +41,7 @@
 	flex-grow: 1;
 	gap: var(--gap);
 
-	@media (width < $md) {
+	@media (width < breakpoints.$md) {
 		--gap: 24px;
 	}
 
@@ -55,7 +55,7 @@
 		align-items: center;
 		gap: 24px;
 
-		@media (width < $md) {
+		@media (width < breakpoints.$md) {
 			gap: 12px;
 		}
 
@@ -63,7 +63,7 @@
 			display: grid;
 			gap: 12px;
 
-			@media (width < $md) {
+			@media (width < breakpoints.$md) {
 				gap: 4px;
 			}
 		}

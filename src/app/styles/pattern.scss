@@ -1,18 +1,18 @@
-@import './breakpoints';
+@use './breakpoints';
 
 // br
 
 .br-lg {
   display: block;
 
-  @media (width < $md) {
+  @media (width < breakpoints.$md) {
     display: none;
   }
 }
 .br-md {
   display: none;
 
-  @media (width < $md) {
+  @media (width < breakpoints.$md) {
     display: block;
   }
 }

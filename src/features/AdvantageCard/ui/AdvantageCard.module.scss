@@ -1,4 +1,4 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .card {
 	position: relative;
@@ -10,11 +10,11 @@
 	padding-bottom: 30px;
 	overflow: visible;
 
-	@media (width < $lg) {
+	@media (width < breakpoints.$lg) {
 		min-height: 130px;
 		padding: 30px 30px 20px;
 	}
-	@media (width < $md) {
+	@media (width < breakpoints.$md) {
 		justify-content: flex-start;
 		gap: 12px;
 		min-height: unset;
@@ -28,7 +28,7 @@
 		left: 50%;
 		translate: -50% 0;
 
-		@media (width < $md) {
+		@media (width < breakpoints.$md) {
 			position: relative;
 			top: unset;
 			left: unset;
@@ -40,11 +40,11 @@
 		font-weight: 700;
 		text-align: center;
 
-		@media (width < $md) {
+		@media (width < breakpoints.$md) {
       font: var(--font-s);
 			font-weight: 700;
     }
-		@media (width < $sm) {
+		@media (width < breakpoints.$sm) {
 			text-align: left;
 		}
 	}

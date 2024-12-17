@@ -1,11 +1,14 @@
-@import '@app/styles/breakpoints';
+@use '@app/styles/breakpoints';
 
 .intro {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 20px;
 
-	@media (width < $lg) {
+	@media (width < breakpoints.$lg) {
 		grid-template-columns: 1fr;
+	}
+	@media (width < breakpoints.$md) {
+		gap: 10px;
 	}
 }
