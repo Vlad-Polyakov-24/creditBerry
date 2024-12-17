@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# CreditBerry
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**CreditBerry** is an application for fast and efficient loan processing. Built using modern technologies and designed with the Feature-Sliced Design (FSD) methodology for scalable and maintainable architecture.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Vite**: A lightning-fast build tool.
+- **React + TypeScript**: For building a type-safe and dynamic UI.
 
-## Expanding the ESLint configuration
+## 📦 Key Packages
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Core**:
+    - `axios`: For API communication.
+    - `formik` + `yup`: Simplified form handling and validation.
+    - `zustand`: Lightweight state management.
+    - `react-toastify`: Elegant notifications.
+    - `swiper`: Customizable sliders for a rich UI.
+    - Explore more in `package.json`.
 
-- Configure the top-level `parserOptions` property like this:
+- **Development Tools**:
+    - `eslint`: Enforce coding standards.
+    - `vite-plugin-svgr`: SVG icon integration.
+    - `typescript`: Strong static typing.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Project Scripts
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- `dev`: Starts the development server.
+- `build`: Builds the project for production.
+- `lint`: Runs linter to catch errors and enforce coding style.
+- `deploy`: Deploys the project to GitHub Pages.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🌐 Deployment
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+The project is live at:  
+[CreditBerry on GitHub Pages](https://Vlad-Polyakov-24.github.io/creditBerry)
+
+## 📂 Directory Structure
+
+CreditBerry follows the **Feature-Sliced Design (FSD)** methodology for organizing the codebase into scalable layers.
+
+```bash
+src/
+├── app/               # Global app setup (routing, providers, styles, etc.)
+├── pages/             # Full pages or nested routing components
+├── widgets/           # Large UI or functional sections of the app
+├── features/          # Implementations of core product features
+├── entities/          # Domain-specific entities like user or loan
+├── shared/            # Reusable utilities, components, and helpers
+├── __tests__/         # Application-wide test cases
+└── index.tsx          # Application entry point
