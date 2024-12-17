@@ -7,6 +7,9 @@ const App = () => {
 
   useEffect(() => {
     const handlePopState = () => {
+
+      console.log('window.location.pathname:', window.location.pathname);
+
       if (window.location.pathname === '/') {
         change({ to: AppStatus.DEFAULT });
       }
