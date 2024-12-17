@@ -26,7 +26,7 @@ const App = () => {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [change]);
+  }, [change, getStorage]);
 
   return <AppLayout />;
 };
