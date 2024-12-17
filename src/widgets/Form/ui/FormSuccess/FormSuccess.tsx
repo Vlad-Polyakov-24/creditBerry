@@ -23,8 +23,8 @@ const FormSuccess = memo((props: FormSuccessProps) => {
 
 		if (counter === 0) {
 			clearInterval(timer);
-			change({ to: AppStatus.DEFAULT });
 			window.location.href = 'https://1zaim.com/BRC/1/';
+			change({ to: AppStatus.DEFAULT });
 		}
 
 		return () => clearInterval(timer);
