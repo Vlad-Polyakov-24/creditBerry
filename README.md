@@ -46,5 +46,4 @@ src/
 ├── features/          # Implementations of core product features
 ├── entities/          # Domain-specific entities like user or loan
 ├── shared/            # Reusable utilities, components, and helpers
-├── __tests__/         # Application-wide test cases
 └── index.tsx          # Application entry point
