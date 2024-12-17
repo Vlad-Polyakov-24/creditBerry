@@ -4,9 +4,11 @@ import { classNames } from '@shared/lib/classNames';
 import { Card } from '@shared/ui/Card';
 import { Button } from '@shared/ui/Button';
 import CalculatorInput from '../CalculatorInput/CalculatorInput';
-import { useChangeStatus, AppStatus } from '@entities/App';
+import { AppStatus, useChangeStatus } from '@entities/App';
 import { CalculatorInputTheme } from '../../model/types/Calculator.types';
 import styles from './Calculator.module.scss';
+import { useLocalStorage } from '@entities/User';
+import { localStorageVars } from '@shared/const/localStorage';
 
 type CalculatorProps = {
 	className?: string;
@@ -29,6 +31,8 @@ const Calculator = memo(({ className }: CalculatorProps) => {
 	};
 	const { change } = useChangeStatus();
 	const { isMobile } = useMedia();
+
+	const { removeStorage } = useLocalStorage();
 
 	useEffect(() => {
 		const amountFactor = amount / 500;
@@ -69,6 +73,9 @@ const Calculator = memo(({ className }: CalculatorProps) => {
 				fluid={isMobile}
 			>
 				Взяти кредит
+			</Button>
+			<Button className={'m-centred mt-10'} onClick={() => removeStorage(localStorageVars.LOGGED_IN)}>
+				reset status
 			</Button>
 			<p className={styles.calculator__warning}>* Цей віджет не є кредитним калькулятором</p>
 		</Card>

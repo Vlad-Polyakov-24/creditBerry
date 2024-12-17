@@ -1,12 +1,14 @@
 import { useCallback, useMemo } from 'react';
 import { useToast } from '@shared/hooks/useToast';
+import { useLocalStorage } from '@entities/User';
 import { localStorageVars } from '@shared/const/localStorage';
 import { AppStatus } from '../model/types/App.types';
 import { appState } from '../model/state/appState';
 
 export const useChangeStatus = () => {
 	const { set } = appState();
-	const { error } = useToast();
+	const { error, info } = useToast();
+	const { getStorage } = useLocalStorage();
 
 	const handlers = useMemo(
 		() => ({
@@ -14,16 +16,16 @@ export const useChangeStatus = () => {
 				set({ status: to });
 			},
 			[AppStatus.FORM]: (to: AppStatus) => {
-				const isLoggedIn = localStorage.getItem(localStorageVars.LOGGED_IN);
+				const isVisitedBefore = getStorage(localStorageVars.LOGGED_IN);
 
-				if (isLoggedIn) {
-					alert('Already logged in');
+				if (isVisitedBefore) {
+					info('Льоха підор');
 				} else {
 					set({ status: to });
 				}
 			},
 		}),
-		[set]
+		[getStorage, info, set]
 	);
 
 	const change = useCallback(

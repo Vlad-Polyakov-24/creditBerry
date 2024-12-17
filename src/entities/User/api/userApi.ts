@@ -13,7 +13,7 @@ export const userApi = {
 			setTimeout(() => {
 				console.log(`Mocked API call with number: ${number}`);
 				resolve(true);
-			}, 5000);
+			}, 2000);
 		});
 	},
 };

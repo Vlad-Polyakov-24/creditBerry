@@ -3,6 +3,7 @@ import { Form, Formik, type FormikHelpers } from 'formik';
 import { classNames } from '@shared/lib/classNames';
 import { useToggle } from '@shared/hooks/useToggle';
 import { useToast } from '@shared/hooks/useToast';
+import { useLocalStorage } from '@entities/User';
 import { Input } from '@shared/ui/Input';
 import { Checkbox } from '@shared/ui/Checkbox';
 import { Button } from '@shared/ui/Button';
@@ -11,6 +12,7 @@ import { numberSchema } from '@shared/const/validationSchemas';
 import { userApi } from '../../api/userApi';
 import { initialValues } from '../../model/data/phoneForm.data';
 import { FormStatus } from '@widgets/Form';
+import { localStorageVars } from '@shared/const/localStorage';
 import type { IPhoneForm } from '../../model/types/PhoneForm.types';
 import styles from './PhoneForm.module.scss';
 
@@ -23,6 +25,7 @@ type PhoneFormProps = {
 
 const PhoneForm = memo((props: PhoneFormProps) => {
 	const { className, setFormStatus, setUserNumber, setIsLoading } = props;
+	const { setStorage } = useLocalStorage();
 	const { isOpen, open, close } = useToggle();
 	const { error } = useToast();
 
@@ -39,6 +42,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 					await userApi.sendNumber(values.number);
 					setFormStatus(FormStatus.SUCCESS);
 					setUserNumber(values.number);
+					setStorage(localStorageVars.LOGGED_IN, 'true');
 					resetForm();
 				} catch (e) {
 					if (e) {
@@ -49,7 +53,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 				}
 			}
 		},
-		[error, setFormStatus, setIsLoading, setUserNumber]
+		[error, setFormStatus, setIsLoading, setStorage, setUserNumber]
 	);
 
 	return (
