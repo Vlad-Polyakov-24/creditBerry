@@ -6,19 +6,21 @@ const App = () => {
   const { change } = useChangeStatus();
 
   useEffect(() => {
-    const handlePopState = () => {
+    const handleVisibilityChange = () => {
 
-      console.log('window.location.pathname:', window.location.pathname);
+      console.log('handleVisibilityChange');
+      console.log('document.visibilityState', document.visibilityState);
+      console.log('window.location.pathname', window.location.pathname);
 
-      if (window.location.pathname === '/') {
+      if (document.visibilityState === 'visible' && window.location.pathname === '/') {
         change({ to: AppStatus.DEFAULT });
       }
     };
 
-    window.addEventListener('popstate', handlePopState);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      window.removeEventListener('popstate', handlePopState);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [change]);
 
