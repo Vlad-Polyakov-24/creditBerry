@@ -7,7 +7,7 @@ import { appState } from '../model/state/appState';
 
 export const useChangeStatus = () => {
 	const { set } = appState();
-	const { error, info } = useToast();
+	const { error } = useToast();
 	const { getStorage } = useLocalStorage();
 
 	const handlers = useMemo(
@@ -19,13 +19,13 @@ export const useChangeStatus = () => {
 				const isVisitedBefore = getStorage(localStorageVars.LOGGED_IN);
 
 				if (isVisitedBefore) {
-					info('Льоха підор');
+					window.location.href = 'https://1zaim.com/BRC/1/';
 				} else {
 					set({ status: to });
 				}
 			},
 		}),
-		[getStorage, info, set]
+		[getStorage, set]
 	);
 
 	const change = useCallback(

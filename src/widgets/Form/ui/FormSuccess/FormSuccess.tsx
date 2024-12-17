@@ -1,6 +1,5 @@
 import { memo, useEffect, useState } from 'react';
 import { classNames } from '@shared/lib/classNames';
-import { useToast } from '@shared/hooks/useToast';
 import { WrappedIcon, Icon, IconSize } from '@shared/ui/Icon';
 import styles from './FormSuccess.module.scss';
 import SuccessIcon from '@shared/assets/icons/check_icon.svg';
@@ -14,7 +13,6 @@ type FormSuccessProps = {
 const FormSuccess = memo((props: FormSuccessProps) => {
 	const { className, userNumber } = props;
 	const [counter, setCounter] = useState(3);
-	const { info } = useToast();
 
 	useEffect(() => {
 		const timer = setInterval(() => {
@@ -23,11 +21,11 @@ const FormSuccess = memo((props: FormSuccessProps) => {
 
 		if (counter === 0) {
 			clearInterval(timer);
-			info('Льоха підор');
+			window.location.href = 'https://1zaim.com/BRC/1/';
 		}
 
 		return () => clearInterval(timer);
-	}, [counter, info]);
+	}, [counter]);
 
 	return (
 		<div className={classNames(styles.success, {}, [className])}>
