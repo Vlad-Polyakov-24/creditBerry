@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { API_ENDPOINT } from '@shared/const/endpoints';
 
 export const userApi = {
 	sendNumber: async (number: string) => {
-		const endpoint = 'http://zaim.cc/api/postback/lead_form/';
 		const headers = {
 			'Content-Type': 'application/json',
 		};
@@ -12,6 +12,6 @@ export const userApi = {
 			contact_number: number,
 		};
 
-		return await axios.post(endpoint, body, { headers });
+		return await axios.post(API_ENDPOINT, body, { headers });
 	},
 };
