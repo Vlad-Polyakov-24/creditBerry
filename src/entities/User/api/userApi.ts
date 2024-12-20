@@ -1,19 +1,17 @@
-// import axios from 'axios';
+import axios from 'axios';
 
 export const userApi = {
 	sendNumber: async (number: string) => {
-		// const endpoint = 'https://url';
-		// const headers = {
-		// 	'Content-Type': 'application/json',
-		// };
-		//
-		// return await axios.post(endpoint, { number }, { headers });
+		const endpoint = 'http://zaim.cc/api/postback/lead_form/';
+		const headers = {
+			'Content-Type': 'application/json',
+		};
+		const body = {
+			source: 'creditberry',
+			sub3: 'string',
+			contact_number: number,
+		};
 
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				console.log(`Mocked API call with number: ${number}`);
-				resolve(true);
-			}, 2000);
-		});
+		return await axios.post(endpoint, body, { headers });
 	},
 };

@@ -45,9 +45,8 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 					setStorage(localStorageVars.LOGGED_IN, 'true');
 					resetForm();
 				} catch (e) {
-					if (e) {
-						error('Щось пішло не так, спробуй ще раз!');
-					}
+					console.error('Error in handleSubmit:', e);
+					error('Щось пішло не так, спробуй ще раз!');
 				} finally {
 					setIsLoading(false);
 				}
