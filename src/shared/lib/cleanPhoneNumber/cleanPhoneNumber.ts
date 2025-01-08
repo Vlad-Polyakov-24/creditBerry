@@ -1,0 +1,1 @@
+export const cleanPhoneNumber = (number: string) => number.replace(/\D/g, '');

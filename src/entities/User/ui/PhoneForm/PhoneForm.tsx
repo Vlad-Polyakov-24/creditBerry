@@ -1,6 +1,7 @@
 import { memo, useCallback, type MouseEvent } from 'react';
 import { Form, Formik, type FormikHelpers } from 'formik';
 import { classNames } from '@shared/lib/classNames';
+import { cleanPhoneNumber } from '@shared/lib/cleanPhoneNumber';
 import { useToggle } from '@shared/hooks/useToggle';
 import { useToast } from '@shared/hooks/useToast';
 import { useLocalStorage } from '@entities/User';
@@ -39,7 +40,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 			if (values) {
 				try {
 					setIsLoading(true);
-					await userApi.sendNumber(values.number);
+					await userApi.sendNumber(cleanPhoneNumber(values.number));
 					setFormStatus(FormStatus.SUCCESS);
 					setUserNumber(values.number);
 					setStorage(localStorageVars.LOGGED_IN, 'true');
