@@ -1,4 +1,4 @@
-import { memo, useCallback, type MouseEvent } from 'react';
+import { memo, useCallback, useEffect, useState, type MouseEvent } from 'react';
 import { Form, Formik, type FormikHelpers } from 'formik';
 import { classNames } from '@shared/lib/classNames';
 import { cleanPhoneNumber } from '@shared/lib/cleanPhoneNumber';
@@ -26,9 +26,30 @@ type PhoneFormProps = {
 
 const PhoneForm = memo((props: PhoneFormProps) => {
 	const { className, setFormStatus, setUserNumber, setIsLoading } = props;
+	const [subParams, setSubParams] = useState<{ sub3: string; sub4?: string | null; sub5?: string | null }>({
+		sub3: 'empty',
+	});
 	const { setStorage } = useLocalStorage();
 	const { isOpen, open, close } = useToggle();
 	const { error } = useToast();
+
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search);
+
+		setSubParams({
+			sub3: params.get('sub3') || 'empty',
+			...(params.get('sub4') ? { sub4: params.get('sub4') } : {}),
+			...(params.get('sub5') ? { sub5: params.get('sub5') } : {}),
+		});
+	}, []);
+
+	const buildPayload = useCallback(
+		(values: IPhoneForm) => ({
+			contact_number: cleanPhoneNumber(values.number),
+			...subParams,
+		}),
+		[subParams]
+	);
 
 	const handleClick = useCallback((e: MouseEvent) => {
 		e.preventDefault();
@@ -40,7 +61,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 			if (values) {
 				try {
 					setIsLoading(true);
-					await userApi.sendNumber(cleanPhoneNumber(values.number));
+					await userApi.sendNumber(buildPayload(values));
 					setFormStatus(FormStatus.SUCCESS);
 					setUserNumber(values.number);
 					setStorage(localStorageVars.LOGGED_IN, 'true');
@@ -53,7 +74,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 				}
 			}
 		},
-		[error, setFormStatus, setIsLoading, setStorage, setUserNumber]
+		[buildPayload, error, setFormStatus, setIsLoading, setStorage, setUserNumber]
 	);
 
 	return (
