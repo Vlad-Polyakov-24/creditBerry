@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { AppLayout } from '@app/layouts/AppLayout';
-import { AppStatus, useChangeStatus } from '@entities/App';
-import { useLocalStorage } from '@entities/User';
+import { useChangeStatus, AppStatus } from '@entities/App';
+import { useLocalStorage } from '@shared/hooks/useLocalStorage';
 import { localStorageVars } from '@shared/const/localStorage';
 
 const App = () => {

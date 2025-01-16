@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useToast } from '@shared/hooks/useToast';
-import { useLocalStorage } from '@entities/User';
+import { useLocalStorage } from '@shared/hooks/useLocalStorage';
 import { localStorageVars } from '@shared/const/localStorage';
 import { AppStatus } from '../model/types/App.types';
 import { appState } from '../model/state/appState';

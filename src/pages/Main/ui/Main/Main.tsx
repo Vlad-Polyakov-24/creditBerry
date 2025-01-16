@@ -10,18 +10,14 @@ type MainProps = {
 	className?: string;
 };
 
-const Main = (props: MainProps) => {
-	const { className } = props;
-
-	return (
-		<article className={classNames(styles.main, {}, [className])}>
-			<MainIntro />
-			<MainAdvantages />
-			<MainConditions />
-			<MainReviews />
-			<MainGeneralConditions />
-		</article>
-	);
-};
+const Main = ({ className }: MainProps) => (
+	<article className={classNames(styles.main, {}, [className])}>
+		<MainIntro/>
+		<MainAdvantages/>
+		<MainConditions/>
+		<MainReviews/>
+		<MainGeneralConditions/>
+	</article>
+);
 
 export default Main;

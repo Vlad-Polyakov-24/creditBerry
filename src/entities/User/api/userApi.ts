@@ -3,9 +3,7 @@ import { API_ENDPOINT } from '@shared/const/endpoints';
 
 type IPayload = {
 	contact_number: string;
-	sub3: string;
-	sub4?: string | null;
-	sub5?: string | null;
+	[subKey: `sub${number}`]: string | undefined;
 };
 
 export const userApi = {

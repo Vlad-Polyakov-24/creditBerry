@@ -2,9 +2,11 @@ import { memo, useCallback, useEffect, useState, type MouseEvent } from 'react';
 import { Form, Formik, type FormikHelpers } from 'formik';
 import { classNames } from '@shared/lib/classNames';
 import { cleanPhoneNumber } from '@shared/lib/cleanPhoneNumber';
+import { handleSubsAndPhone } from '../../lib/handleSubsAndPhone';
 import { useToggle } from '@shared/hooks/useToggle';
 import { useToast } from '@shared/hooks/useToast';
-import { useLocalStorage } from '@entities/User';
+import { useLocalStorage } from '@shared/hooks/useLocalStorage';
+import { useCookies } from '@shared/hooks/useCookies';
 import { Input } from '@shared/ui/Input';
 import { Checkbox } from '@shared/ui/Checkbox';
 import { Button } from '@shared/ui/Button';
@@ -26,21 +28,29 @@ type PhoneFormProps = {
 
 const PhoneForm = memo((props: PhoneFormProps) => {
 	const { className, setFormStatus, setUserNumber, setIsLoading } = props;
-	const [subParams, setSubParams] = useState<{ sub3: string; sub4?: string | null; sub5?: string | null }>({
+	const [subParams, setSubParams] = useState<Record<string, string>>({
 		sub3: 'empty',
 	});
 	const { setStorage } = useLocalStorage();
+	const { setCookie } = useCookies();
 	const { isOpen, open, close } = useToggle();
 	const { error } = useToast();
 
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search);
+		const subs: Record<string, string> = {};
 
-		setSubParams({
-			sub3: params.get('sub3') || 'empty',
-			...(params.get('sub4') ? { sub4: params.get('sub4') } : {}),
-			...(params.get('sub5') ? { sub5: params.get('sub5') } : {}),
+		params.forEach((value, key) => {
+			if (key.startsWith('sub')) {
+				subs[key] = value;
+			}
 		});
+
+		if (!subs.sub3) {
+			subs.sub3 = 'empty';
+		}
+
+		setSubParams(subs);
 	}, []);
 
 	const buildPayload = useCallback(
@@ -64,6 +74,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 					await userApi.sendNumber(buildPayload(values));
 					setFormStatus(FormStatus.SUCCESS);
 					setUserNumber(values.number);
+					handleSubsAndPhone({ setCookie, phone: cleanPhoneNumber(values.number), subs: subParams });
 					setStorage(localStorageVars.LOGGED_IN, 'true');
 					resetForm();
 				} catch (e) {
@@ -74,7 +85,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 				}
 			}
 		},
-		[buildPayload, error, setFormStatus, setIsLoading, setStorage, setUserNumber]
+		[buildPayload, error, setCookie, setFormStatus, setIsLoading, setUserNumber, subParams]
 	);
 
 	return (
