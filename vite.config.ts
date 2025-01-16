@@ -30,5 +30,6 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, './src/pages'),
     },
   },
-  base: isProd ? '/' : '/creditBerry/',
+  // base: isProd ? '/' : '/creditBerry/',
+  base: '/creditBerry/',
 });
