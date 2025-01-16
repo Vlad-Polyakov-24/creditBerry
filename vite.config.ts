@@ -31,5 +31,6 @@ export default defineConfig({
     },
   },
   // base: isProd ? '/' : '/creditBerry/',
-  base: '/creditBerry/',
+  // base: '/creditBerry/',
+  base: process.env.GITHUB_PAGES ? '/creditBerry/' : '/',
 });
