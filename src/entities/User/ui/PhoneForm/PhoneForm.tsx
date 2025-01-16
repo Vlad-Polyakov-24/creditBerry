@@ -85,7 +85,7 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 				}
 			}
 		},
-		[buildPayload, error, setCookie, setFormStatus, setIsLoading, setUserNumber, subParams]
+		[buildPayload, error, setCookie, setFormStatus, setIsLoading, setStorage, setUserNumber, subParams]
 	);
 
 	return (
