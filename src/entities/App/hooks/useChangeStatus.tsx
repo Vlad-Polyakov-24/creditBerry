@@ -1,9 +1,10 @@
 import { useCallback, useMemo } from 'react';
 import { useToast } from '@shared/hooks/useToast';
 import { useLocalStorage } from '@shared/hooks/useLocalStorage';
+import { appState } from '../model/state/appState';
+import { REDIRECT_ENDPOINT } from '@shared/const/endpoints';
 import { localStorageVars } from '@shared/const/localStorage';
 import { AppStatus } from '../model/types/App.types';
-import { appState } from '../model/state/appState';
 
 export const useChangeStatus = () => {
 	const { set } = appState();
@@ -19,7 +20,7 @@ export const useChangeStatus = () => {
 				const isVisitedBefore = getStorage(localStorageVars.LOGGED_IN);
 
 				if (isVisitedBefore) {
-					window.location.href = 'https://1zaim.com/BRC/1/';
+					window.location.href = REDIRECT_ENDPOINT;
 				} else {
 					set({ status: to });
 				}
