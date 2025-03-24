@@ -1,12 +1,26 @@
 import { useEffect } from 'react';
 import { AppLayout } from '@app/layouts/AppLayout';
 import { useChangeStatus, AppStatus } from '@entities/App';
+import { useQueryParams } from '@entities/User';
 import { useLocalStorage } from '@shared/hooks/useLocalStorage';
+import { useCookies } from '@shared/hooks/useCookies';
 import { localStorageVars } from '@shared/const/localStorage';
 
 const App = () => {
   const { change } = useChangeStatus();
   const { getStorage } = useLocalStorage();
+  const { setCookie } = useCookies();
+  const queryParams = useQueryParams();
+
+  useEffect(() => {
+    if (queryParams) {
+      Object.entries(queryParams).forEach(([key, value]) => {
+        if (value) {
+          setCookie(key, value);
+        }
+      });
+    }
+  }, [queryParams, setCookie]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
