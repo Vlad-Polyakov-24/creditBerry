@@ -13,7 +13,7 @@ const Footer = memo(({ className }: FooterProps) => (
 		<Container className={styles.footer__inner}>
 			<Logo/>
 			<address className={styles.footer__copyright}>
-				&copy;2024 Наша адреса: ТОВ «CreditBerry», 01005, м. Київ, вул. Анни Ахматової, 18.<br/>
+				&copy;2025 Наша адреса: ТОВ «CreditBerry», 01005, м. Київ, вул. Анни Ахматової, 18.<br/>
 				Залишилися питання? Напишіть нам: <a href={'mailto:info@creditberry.com.ua'}>info@creditberry.com.ua</a>
 			</address>
 		</Container>

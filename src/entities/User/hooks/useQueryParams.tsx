@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 
 export const useQueryParams = () => {
-	const [subParams, setSubParams] = useState<Record<string, string>>({
-		sub3: 'empty',
+	const [params, setParams] = useState<{
+		cookies: Record<string, string>;
+		backend: Record<string, string>;
+	}>({
+		cookies: { sub3: 'empty' },
+		backend: { sub3: 'empty' },
 	});
 
 	useEffect(() => {
-		const params = new URLSearchParams(window.location.search);
-		const subs: Record<string, string> = {};
+		const urlParams = new URLSearchParams(window.location.search);
+		const cookies: Record<string, string> = {};
+		const backend: Record<string, string> = {};
+
 		const utmMapping: Record<string, string> = {
 			utm_source: 'sub1',
 			utm_campaign: 'sub2',
@@ -19,24 +25,49 @@ export const useQueryParams = () => {
 		};
 
 		Object.entries(utmMapping).forEach(([utmKey, subKey]) => {
-			const utmValue = params.get(utmKey);
-			if (utmValue) {
-				subs[subKey] = utmValue;
+			const value = urlParams.get(utmKey);
+			if (value) {
+				cookies[subKey] = value;
 			}
 		});
 
-		params.forEach((value, key) => {
+		urlParams.forEach((value, key) => {
 			if (key.startsWith('sub')) {
-				subs[key] = value;
+				cookies[key] = value;
 			}
 		});
 
-		if (!subs.sub3) {
-			subs.sub3 = 'empty';
+		if (!cookies.sub3) {
+			cookies.sub3 = 'empty';
 		}
 
-		setSubParams(subs);
+		const rawSource = urlParams.get('utm_source') || urlParams.get('sub1');
+
+		if (rawSource === 'googleadsgdn') {
+			backend.sub1 = 'form';
+			backend.sub2 = 'crm';
+			backend.sub3 = 'lead';
+		} else {
+			Object.entries(utmMapping).forEach(([utmKey, subKey]) => {
+				const value = urlParams.get(utmKey);
+				if (value) {
+					backend[subKey] = value;
+				}
+			});
+
+			urlParams.forEach((value, key) => {
+				if (key.startsWith('sub')) {
+					backend[key] = value;
+				}
+			});
+
+			if (!backend.sub3) {
+				backend.sub3 = 'empty';
+			}
+		}
+
+		setParams({ cookies, backend });
 	}, []);
 
-	return subParams;
+	return params;
 };

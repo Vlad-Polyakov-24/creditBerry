@@ -10,17 +10,17 @@ const App = () => {
   const { change } = useChangeStatus();
   const { getStorage } = useLocalStorage();
   const { setCookie } = useCookies();
-  const queryParams = useQueryParams();
+  const { cookies: cookiesParams } = useQueryParams();
 
   useEffect(() => {
-    if (queryParams) {
-      Object.entries(queryParams).forEach(([key, value]) => {
+    if (cookiesParams) {
+      Object.entries(cookiesParams).forEach(([key, value]) => {
         if (value) {
           setCookie(key, value);
         }
       });
     }
-  }, [queryParams, setCookie]);
+  }, [cookiesParams, setCookie]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {

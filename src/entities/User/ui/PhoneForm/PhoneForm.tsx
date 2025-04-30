@@ -28,7 +28,7 @@ type PhoneFormProps = {
 
 const PhoneForm = memo((props: PhoneFormProps) => {
 	const { className, setFormStatus, setUserNumber, setIsLoading } = props;
-	const queryParams = useQueryParams();
+	const { backend: backendParams } = useQueryParams();
 	const { setStorage } = useLocalStorage();
 	const { setCookie } = useCookies();
 	const { isOpen, open, close } = useToggle();
@@ -37,9 +37,9 @@ const PhoneForm = memo((props: PhoneFormProps) => {
 	const buildPayload = useCallback(
 		(values: IPhoneForm) => ({
 			contact_number: cleanPhoneNumber(values.number),
-			...queryParams,
+			...backendParams,
 		}),
-		[queryParams]
+		[backendParams]
 	);
 
 	const handleClick = useCallback((e: MouseEvent) => {
