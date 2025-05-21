@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 import { useMedia } from '@shared/hooks/useMedia';
 import { classNames } from '@shared/lib/classNames';
 import { Card } from '@shared/ui/Card';
@@ -12,31 +12,14 @@ type CalculatorProps = {
 	className?: string;
 };
 
-const BASE_RATE = 0.05;
-
 const Calculator = memo(({ className }: CalculatorProps) => {
 	const [amount, setAmount] = useState(500);
-	const [days, setDays] = useState(1);
-	const [percentage, setPercentage] = useState(0);
-	const [total, setTotal] = useState(0);
 	const amountFixed = {
 		min: 500,
 		max: 25000,
 	};
-	const daysFixed = {
-		min: 1,
-    max: 30,
-	};
 	const { change } = useChangeStatus();
 	const { isMobile } = useMedia();
-
-	useEffect(() => {
-		const amountFactor = amount / 500;
-		const newPercentage = BASE_RATE * amountFactor * days;
-
-		setPercentage(parseFloat(newPercentage.toFixed(2)));
-		setTotal(parseFloat((amount + newPercentage).toFixed(2)));
-	}, [amount, days]);
 
 	return (
 		<Card className={classNames(styles.calculator, {}, [className])} style={{ overflow: 'visible' }}>
@@ -49,18 +32,9 @@ const Calculator = memo(({ className }: CalculatorProps) => {
 					total={amount}
 					theme={CalculatorInputTheme.MONEY}
 				/>
-				<CalculatorInput
-					setter={setDays}
-					min={daysFixed.min}
-					max={daysFixed.max}
-					value={daysFixed.min}
-					total={days}
-					theme={CalculatorInputTheme.DAYS}
-				/>
 			</div>
 			<div className={styles.calculator__info}>
-				<p>Відсотки: <span>{percentage}</span> ₴</p>
-				<p>Усього потрібно сплатити: <span>{total}</span> ₴</p>
+				<p>Ми зібрали для вас найкращі пропозиції на ринку</p>
 			</div>
 			<Button
 				className={`${isMobile ? 'mt-12': 'mt-24' } m-centred`}
@@ -68,7 +42,7 @@ const Calculator = memo(({ className }: CalculatorProps) => {
 				onClick={() => change({ to: AppStatus.FORM })}
 				fluid={isMobile}
 			>
-				Взяти кредит
+				Обрати кредит
 			</Button>
 			<p className={styles.calculator__warning}>* Цей віджет не є кредитним калькулятором</p>
 		</Card>
