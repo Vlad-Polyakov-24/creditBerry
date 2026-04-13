@@ -31,14 +31,14 @@ const CustomSlider = (props: SliderProps) => {
 				},
 				track: {
 					height: 2,
-					backgroundColor: 'var(--color-tomato-400)',
+					backgroundColor: 'var(--color-accent-400)',
 				},
 				handle: {
 					width: 20,
 					height: 20,
 					marginTop: -9,
 					opacity: 1,
-					border: '4px solid var(--color-tomato-400)',
+					border: '4px solid var(--color-accent-400)',
 				},
 			}}
 			activeHandleRender={(renderElement, { dragging }) => (

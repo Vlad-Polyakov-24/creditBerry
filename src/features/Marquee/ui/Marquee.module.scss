@@ -2,7 +2,7 @@
 
 .marquee {
 	height: 40px;
-	background-color: var(--color-tomato-400);
+	background-color: var(--color-accent-400);
 
 	@media (width < breakpoints.$md) {
 		height: 30px;
