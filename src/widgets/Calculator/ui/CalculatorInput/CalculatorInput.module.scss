@@ -17,7 +17,7 @@
 
 		@media (hover: hover) {
 			&:hover {
-				border-color: var(--color-tomato-400);
+				border-color: var(--color-accent-400);
 			}
 		}
 
@@ -30,7 +30,7 @@
 	&__button {
 		@media (hover: hover) {
 			&:hover {
-				background-color: var(--color-tomato-opacity);
+				background-color: var(--color-accent-opacity);
 			}
 		}
 	}
@@ -50,7 +50,7 @@
 		}
 
 		span {
-			color: var(--color-tomato-400);
+			color: var(--color-accent-400);
 		}
 	}
 

@@ -34,11 +34,11 @@
 	// theme
 
 	&--primary {
-		background-color: var(--color-tomato-400);
+		background-color: var(--color-accent-400);
 
 		@media (hover: hover) {
 			&:hover {
-				background-color: var(--color-tomato-100);
+				background-color: var(--color-accent-100);
 			}
 		}
 	}
@@ -55,7 +55,7 @@
 
 		@media (hover: hover) {
 			&:hover {
-				background-color: var(--color-tomato-400);
+				background-color: var(--color-accent-400);
 			}
 		}
 	}
@@ -78,7 +78,7 @@
 	// active
 
 	&:active {
-		background-color: var(--color-tomato-600);
+		background-color: var(--color-accent-600);
 	}
 
 	// disabled

@@ -4,9 +4,9 @@ import { Pagination, Autoplay, Grid } from 'swiper/modules';
 import { classNames } from '@shared/lib/classNames';
 import GallerySlide from '../GallerySlide/GallerySlide';
 import type { IReview } from '../../model/types/Gallery.types';
-import 'swiper/scss';
-import 'swiper/scss/grid';
-import 'swiper/scss/pagination';
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
 import styles from './Gallery.module.scss';
 
 type GalleryProps = {
