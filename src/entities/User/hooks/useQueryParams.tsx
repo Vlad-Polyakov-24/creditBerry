@@ -66,6 +66,7 @@ export const useQueryParams = () => {
 			}
 		}
 
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setParams({ cookies, backend });
 	}, []);
 

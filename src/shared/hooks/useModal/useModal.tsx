@@ -42,6 +42,7 @@ const useModal = ({ isOpen, onClose, animationDelay }: UseModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsMounted(true);
     } else {
       close();
@@ -65,7 +66,7 @@ const useModal = ({ isOpen, onClose, animationDelay }: UseModalProps) => {
 
   return {
     isMounted,
-    close: useCallback(close, [close]),
+    close,
     isClosing,
     modalRef,
   };
